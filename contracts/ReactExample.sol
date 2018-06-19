@@ -12,7 +12,7 @@ contract ReactExample {
 
 
     //CONSTRUCTOR FUNCTION//
-    function ReactExample () public {  //system contstructor function is identified by having the same name as the contract; it runs once - at contract init on the chain
+    constructor () public {  //system contstructor function is identified by having the same name as the contract; it runs once - at contract init on the chain
         owner = msg.sender;            //set 'owner' value to the address that calls the function for the 1st time *always the deployer?*
         you_awesome = "You are awesome"; //set 'you_awesome' value to literal "You're awesome"
         secret = "secret data";  //set 'secret' value to literal "secret data"
@@ -40,7 +40,7 @@ contract ReactExample {
         if (_pseudoRandomResult > bytes32(10)) pseudoRandomResult = true;
         else pseudoRandomResult = false;
 
-        ExperimentComplete (pseudoRandomResult);
+        emit ExperimentComplete (pseudoRandomResult);
     }
 
     //KILL FUNCTION//
