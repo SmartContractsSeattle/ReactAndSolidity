@@ -42,7 +42,7 @@ class App extends Component {
   querySecret () {
     const { getSecret } = this.state.ContractInstance;
 
-    getSecret ((err, secret) => {
+    getSecret().then((secret, err) => {
       if (err) console.error ('An error occurred.', err);
       console.log ('This is our contract\'s secret variable value:', secret);
     })
