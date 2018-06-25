@@ -13,6 +13,10 @@ Remix (building and deploying solidity smart contracts to the Rinkeby testnet)
 Metamask (facilitating Ethereum network transactions, via web3)
 *My text editing was done in Atom*
 
+Setup instructions:
+- Download [ganache](https://truffleframework.com/ganache/)
+- Install truffle via `npm install -g truffle`
+- Build contracts by running `./build.sh`
 
 CHALLENGE
 Seattle Smart Contracts Hackers:
