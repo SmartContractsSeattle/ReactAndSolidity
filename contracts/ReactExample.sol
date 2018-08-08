@@ -8,6 +8,7 @@ contract ReactExample {
     string private secret;  //declare a private state variable 'secret' of the string type
     string private state;   //declare a private state variable 'state' of the string type
     bool public pseudoRandomResult;  //declare a public state variable 'pseudoRandomResult' of the bool type
+    string private ipfsHash;
     event ExperimentComplete (bool result);
 
 
@@ -41,6 +42,14 @@ contract ReactExample {
         else pseudoRandomResult = false;
 
         emit ExperimentComplete (pseudoRandomResult);
+    }
+
+    function setIpfsHash (string newIpfsHash) public {
+        ipfsHash = newIpfsHash;
+    }
+
+    function getIpfsHash () public view returns(string) {
+        return ipfsHash;
     }
 
     //KILL FUNCTION//
