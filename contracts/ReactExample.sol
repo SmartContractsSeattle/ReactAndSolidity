@@ -8,11 +8,12 @@ contract ReactExample {
     string private secret;  //declare a private state variable 'secret' of the string type
     string private state;   //declare a private state variable 'state' of the string type
     bool public pseudoRandomResult;  //declare a public state variable 'pseudoRandomResult' of the bool type
+    string private ipfsHash;
     event ExperimentComplete (bool result);
 
 
     //CONSTRUCTOR FUNCTION//
-    function ReactExample () public {  //system contstructor function is identified by having the same name as the contract; it runs once - at contract init on the chain
+    constructor () public {  //system contstructor function is identified by having the same name as the contract; it runs once - at contract init on the chain
         owner = msg.sender;            //set 'owner' value to the address that calls the function for the 1st time *always the deployer?*
         you_awesome = "You are awesome"; //set 'you_awesome' value to literal "You're awesome"
         secret = "secret data";  //set 'secret' value to literal "secret data"
@@ -40,7 +41,15 @@ contract ReactExample {
         if (_pseudoRandomResult > bytes32(10)) pseudoRandomResult = true;
         else pseudoRandomResult = false;
 
-        ExperimentComplete (pseudoRandomResult);
+        emit ExperimentComplete (pseudoRandomResult);
+    }
+
+    function setIpfsHash (string newIpfsHash) public {
+        ipfsHash = newIpfsHash;
+    }
+
+    function getIpfsHash () public view returns(string) {
+        return ipfsHash;
     }
 
     //KILL FUNCTION//
